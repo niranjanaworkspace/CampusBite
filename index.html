@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusBite | Canteen Orders</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">CB</span><div><b>CampusBite</b><small>CANTEEN MANAGER</small></div></div>
+      <p class="nav-label">MENU</p>
+      <a class="nav-link active" href="#dashboard">▦ &nbsp; Dashboard</a>
+      <a class="nav-link" href="#new-order">＋ &nbsp; New order</a>
+      <a class="nav-link" href="#records">☷ &nbsp; Order records</a>
+      <div class="side-bottom"><span class="dot"></span> System ready<small>Simple canteen order management</small></div>
+    </aside>
+
+    <main class="main" id="dashboard">
+      <header class="header">
+        <div><p class="eyebrow">CAMPUS CANTEEN</p><h1>Order dashboard</h1><p class="muted">A simpler way to keep every order moving.</p></div>
+        <div class="ready"><span class="dot"></span> Ready to use</div>
+      </header>
+
+      <section class="stats">
+        <article class="stat"><span>Total orders</span><b id="totalCount">0</b><small>All orders received</small></article>
+        <article class="stat"><span>Waiting</span><b id="waitingCount">0</b><small>Waiting to be prepared</small></article>
+        <article class="stat"><span>Preparing</span><b id="preparingCount">0</b><small>Being prepared now</small></article>
+        <article class="stat"><span>Completed</span><b id="completedCount">0</b><small>Ready for pickup</small></article>
+      </section>
+
+      <section class="columns">
+        <article class="card" id="new-order">
+          <div class="card-title"><div><p class="eyebrow">QUICK ACTION</p><h2>Create an order</h2></div><span class="plus">＋</span></div>
+          <form id="orderForm">
+            <label for="customerName">Student name</label>
+            <input id="customerName" maxlength="50" placeholder="e.g. Ananya" required>
+            <label for="foodItem">Food item</label>
+            <select id="foodItem">
+              <option value="Veg Sandwich">Veg Sandwich - ₹40</option>
+              <option value="Masala Dosa">Masala Dosa - ₹60</option>
+              <option value="Chicken Roll">Chicken Roll - ₹70</option>
+              <option value="Tea">Tea - ₹12</option>
+              <option value="Fresh Lime">Fresh Lime - ₹25</option>
+              <option value="Veg Fried Rice">Veg Fried Rice - ₹80</option>
+            </select>
+            <label for="quantity">Quantity</label>
+            <input id="quantity" type="number" min="1" max="20" value="1" required>
+            <button class="button primary full" type="submit">＋ Add order</button>
+            <p id="formMessage" class="message" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="card">
+          <div class="card-title"><div><p class="eyebrow">UP NEXT</p><h2>Waiting orders</h2></div><span class="pill" id="queueBadge">0 orders</span></div>
+          <div id="queueList" class="queue-list"><div class="empty">☕<b>No orders waiting</b><small>Add an order to get started.</small></div></div>
+          <div class="actions"><button id="callNextBtn" class="button primary" type="button">Start next order →</button><button id="resetBtn" class="button light" type="button">Reset demo</button></div>
+          <p class="hint">Orders are handled in the order they arrive.</p>
+        </article>
+      </section>
+
+      <section class="card records" id="records">
+        <div class="records-head"><div><p class="eyebrow">ORDER HISTORY</p><h2>Order records</h2><p class="muted">Find an order by its order number.</p></div>
+          <form id="searchForm" class="search"><input id="searchId" type="number" placeholder="Order number e.g. 1001" aria-label="Order number"><button class="button dark" type="submit">Search</button><button class="button light" id="showAllBtn" type="button">Show all</button></form>
+        </div>
+        <p id="searchMessage" class="message" aria-live="polite"></p>
+        <div class="table-wrap"><table><thead><tr><th>ORDER NO.</th><th>STUDENT</th><th>FOOD ITEM</th><th>QTY</th><th>TOTAL</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="recordsBody"><tr><td colspan="7" class="empty-cell">No orders yet. Add your first order above.</td></tr></tbody></table></div>
+        <div class="table-foot"><span id="recordCount">0 records</span><span>CampusBite order history</span></div>
+      </section>
+      <footer>CampusBite · Student mini-project · Sample orders only</footer>
+    </main>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
